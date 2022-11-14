@@ -78,10 +78,10 @@ export const UpdateDetails = () => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm to Update Title</Modal.Title>
+        <Modal.Header className="mods" closeButton>
+          <Modal.Title className="titles">Confirm to Update Title</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="mods">
           Are you sure you want to Edit this? Once you click on update, the new
           title will be updated!
         </Modal.Body>
@@ -101,7 +101,7 @@ export const UpdateDetails = () => {
       </Modal>
 
       <Link to="/homes">
-        <button className="btn btn-outline-info">Back</button>
+        <button className="btn btn-danger">Back</button>
       </Link>
     </div>
   );

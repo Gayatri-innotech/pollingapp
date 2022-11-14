@@ -10,7 +10,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => alert(JSON.stringify(data));
+
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
@@ -19,13 +19,17 @@ const Register = () => {
   const dispatch = useDispatch();
   const authSign = useSelector((state) => state.authSlice);
   const navigate = useNavigate();
-  const registerHandle = () => {
-    console.log(name, password, { role });
+  const registerHandle = async (e) => {
+    e.preventDefault();
     if (name.length === 0 || password.length === 0 || role.length === 0) {
       setErr(true);
     } else {
-      dispatch(signUpUser({ name, password, role }));
-      navigate("/");
+      const res = await dispatch(signUpUser({ name, password, role }));
+      if (res.payload?.error === 1) {
+        setErr("User already exists!");
+      } else {
+        navigate("/");
+      }
     }
   };
 
@@ -36,8 +40,9 @@ const Register = () => {
   return (
     <>
       <h2 className="sub">Register User</h2>
+      <h6 className="errorss">{err}</h6>
       <div className="contain">
-        <form className="cols" onSubmit={handleSubmit(onSubmit)}>
+        <form className="cols" onSubmit={registerHandle}>
           <label htmlFor="" required className="boxe">
             Username
           </label>
@@ -112,9 +117,19 @@ const Register = () => {
           {errors.userType && <span>{errors.userType.message}</span>}
           <br />
 
-          <button onClick={registerHandle} className="btn1">
-            Register
-          </button>
+          {authSign.loading ? (
+            <div className="loader">
+              <img
+                src="https://acegif.com/wp-content/uploads/loading-13.gif"
+                alt="Loading"
+              />
+            </div>
+          ) : (
+            <button type="submit" className="btn1">
+              Register
+            </button>
+          )}
+
           <br />
 
           <NavLink className="btns" to="/">

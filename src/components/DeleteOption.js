@@ -32,12 +32,12 @@ const DeleteOption = ({ id, ids }) => {
         backdrop="static"
         keyboard={false}
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Delete Option</Modal.Title>
+        <Modal.Header className="mods" closeButton>
+          <Modal.Title className="mods">Delete Option</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="titles">
           Are you sure you want to delete this option? Once you click on Confirm
-          Delete, you cannot Undo it!
+          Delete, you cannot Undo it!!
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleCloses}>

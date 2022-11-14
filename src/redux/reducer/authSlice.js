@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   msg: "",
-  user: localStorage.getItem("user"),
+  user: JSON.parse(localStorage.getItem("user")),
   loading: "",
   error: "",
 };

@@ -27,7 +27,7 @@ const Users = () => {
             <Link
                 to='/homes'>
                 <button
-                    className='btn btn-outline-primary'>
+                    className='btn btn-danger'>
                     Back
                 </button>
 

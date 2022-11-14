@@ -4,16 +4,16 @@ import { signInUser } from "../redux/reducer/authSlice";
 import { NavLink, useNavigate, Navigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState();
-  const [pass, setPass] = useState();
-  const [error, setError] = useState();
+  const [username, setUsername] = useState("");
+  const [pass, setPass] = useState("");
+  const [error, setError] = useState(false);
 
   const dispatch = useDispatch();
   const authState = useSelector((state) => state.authSlice);
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    if (username?.length === 0 || pass?.length === 0) {
+    if (username.length === 0 || pass.length === 0) {
       setError(true);
     } else {
       dispatch(signInUser({ username, pass }));
@@ -53,7 +53,7 @@ const Login = () => {
             />
             <br />
 
-            {error && username.length <= 0 ? (
+            {error && username.length === 0 ? (
               <label className="error">Username can't be empty!</label>
             ) : (
               ""
@@ -76,7 +76,7 @@ const Login = () => {
             />
             <br />
 
-            {error && pass.length <= 0 ? (
+            {error && pass.length === 0 ? (
               <label className="error">Password can't be empty!</label>
             ) : (
               ""
@@ -84,9 +84,18 @@ const Login = () => {
             <br />
             <br />
 
-            <button type="submit" className="btn1" onClick={handleLogin}>
-              Login
-            </button>
+            {authState.loading ? (
+              <div className="loader">
+                <img
+                  src="https://acegif.com/wp-content/uploads/loading-13.gif"
+                  alt="Loading"
+                />
+              </div>
+            ) : (
+              <button type="submit" className="btn1" onClick={handleLogin}>
+                Login
+              </button>
+            )}
 
             <p className="boxx">Do not have an account?</p>
 

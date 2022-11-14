@@ -80,7 +80,7 @@ export const Result = () => {
   return (
     <div className="container">
       <Link to="/homes">
-        <button className="btn btn-primary">Back</button>
+        <button className="btn btn-danger">Back</button>
       </Link>
       {result}
       <Bar data={data} height={0} options={options}></Bar>

@@ -77,6 +77,16 @@ table{
   border-radius: 5px;
 }
 
+.errors {
+  color:#660000;
+  width: 50%;
+  height: 30px;
+  margin-top: 10px;
+  padding: 3px;
+  background: #f3d8da;
+  border-radius: 5px;
+}
+
 .form{
   width: 90%;
   border-radius: 5px;
@@ -198,4 +208,33 @@ table{
 
 .modal {
   background-color:  hsla(0, 0%, 0%, 0);
+}
+
+.spin {
+  background-color: white;
+  background: white;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  background:  hsla(0, 0%, 0%, 0);
+  min-height: 100vh;
+  min-width: 100vw;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.loader > img {
+  height: 50px;
+  width: 50px;
+}
+.errorss {
+  color:#660000;
 }

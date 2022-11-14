@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { PostVoteApiAction } from "../redux/action/action";
@@ -27,13 +25,6 @@ const Like = ({ idd, idss, iddd }) => {
 
   return (
     <div>
-      {/* <FontAwesomeIcon
-                className='like'
-                value={idss}
-                onClick={handleShows}
-                icon={faThumbsUp}
-            /> */}
-
       <input
         type="radio"
         className="like"
@@ -49,10 +40,10 @@ const Like = ({ idd, idss, iddd }) => {
         keyboard={false}
         onClick={handleShows}
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Confirm Voting</Modal.Title>
+        <Modal.Header className="mods" closeButton>
+          <Modal.Title className="titles">Confirm Voting</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className="mods">
           Click on View Results to check the number of votes! If you do not want
           to vote click on close.
         </Modal.Body>
