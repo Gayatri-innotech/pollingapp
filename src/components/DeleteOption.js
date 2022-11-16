@@ -14,12 +14,11 @@ const DeleteOption = ({ id, ids }) => {
 
   const handleShows = () => setShows(true);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   
-
   const handleClick = () => {
     dispatch(DeleteOptionApiAction(id));
-    navigate("/homes");
+    handleCloses();
   };
 
   return (

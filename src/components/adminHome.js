@@ -52,20 +52,18 @@ const AdminHome = () => {
                       <h6 key={index}>
                         <span>
                           <span name={data["_id"]} value={item.option} />
-
                           <Like
                             idd={{ id: data._id, option: item.option }}
                             idss={item.option}
                             iddd={data._id}
                           />
-
                           {user?.role === "admin" && (
                             <DeleteOption
                               id={{ pollid: data._id, option: item.option }}
                               ids={item.option}
                             />
                           )}
-                          {item.option}
+                          {item.option} &nbsp; &nbsp; &nbsp; &nbsp;{item.vote}
                           <hr />
                         </span>{" "}
                         &nbsp;
@@ -107,7 +105,7 @@ const AdminHome = () => {
       {user?.role === "admin" && (
         <Link to="/user">
           <button type="button" className="btn btn-warning">
-            View Results
+            All Users
           </button>
         </Link>
       )}

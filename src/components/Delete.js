@@ -4,17 +4,17 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { DeleteApiAction, GetApiAction } from "../redux/action/action";
 
 const Delete = ({ id }) => {
   const [show, setShow] = useState(false);
   const handleClick = () => {
     dispatch(DeleteApiAction(id));
-    navigate("/homes");
+    handleClose();
   };
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleClose = () => {
     setShow(false);
