@@ -7,6 +7,8 @@ import Edit from "./Edit";
 import Delete from "./Delete";
 import DeleteOption from "./DeleteOption";
 import Like from "./Like";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSquarePollVertical } from "@fortawesome/free-solid-svg-icons";
 
 const AdminHome = () => {
   const navigate = useNavigate();
@@ -25,62 +27,60 @@ const AdminHome = () => {
   }, []);
 
   const result = responseData
-    ? responseData.map((data, index) => {
+    ? [...responseData].reverse().map((data, index) => {
         return (
           <>
-            {authLoad.loading ? (
-              <div className="loader">
-                <img
-                  src="https://acegif.com/wp-content/uploads/loading-13.gif"
-                  alt="Loading"
-                />
-              </div>
-            ) : (
-              <div key={index}>
-                <div className="card">
-                  <h5 className="card-header">
-                    {data["title"]}&nbsp;
-                    <span className="head">
-                      {user?.role === "admin" && <Edit id={data._id} />}
-                    </span>
-                    <span className="head">
-                      {user?.role === "admin" && <Delete id={data._id} />}
-                    </span>
-                  </h5>
-                  <div className="card-body">
-                    {data.options.map((item, index) => (
-                      <h6 key={index}>
-                        <span>
-                          <span name={data["_id"]} value={item.option} />
-                          <Like
-                            idd={{ id: data._id, option: item.option }}
-                            idss={item.option}
-                            iddd={data._id}
+            <div key={index}>
+              <div className="card">
+                <h5 className="card-header">
+                  {data["title"]}&nbsp;
+                  <span className="head">
+                    {user?.role === "admin" && <Edit id={data._id} />}
+                  </span>
+                  <span className="head">
+                    {user?.role === "admin" && <Delete id={data._id} />}
+                  </span>
+                </h5>
+                <div className="card-body">
+                  {data.options.map((item, index) => (
+                    <h6 key={index}>
+                      <span>
+                        <span name={data["_id"]} value={item.option} />
+                        <Like
+                          idd={{ id: data._id, option: item.option }}
+                          idss={item.option}
+                          iddd={data._id}
+                        />
+                        {user?.role === "admin" && (
+                          <DeleteOption
+                            id={{ pollid: data._id, option: item.option }}
+                            ids={item.option}
                           />
-                          {user?.role === "admin" && (
-                            <DeleteOption
-                              id={{ pollid: data._id, option: item.option }}
-                              ids={item.option}
-                            />
-                          )}
-                          {item.option} &nbsp; &nbsp; &nbsp; &nbsp;{item.vote}
-                          <hr />
-                        </span>{" "}
-                        &nbsp;
-                      </h6>
-                    ))}
+                        )}
+                        {item.option} &nbsp; &nbsp; &nbsp; &nbsp;{item.vote}
+                        <hr />
+                      </span>{" "}
+                    </h6>
+                  ))}
 
-                    {user?.role === "admin" && (
-                      <Link to={`/forms/${data._id}`}>
-                        <button type="button" className="btnns">
-                          + Add New Options
-                        </button>
-                      </Link>
-                    )}
-                  </div>
+                  <Link to={`/chart/${data._id}`}>
+                    <FontAwesomeIcon
+                      className="results"
+                      icon={faSquarePollVertical}
+                    />
+                  </Link>
+
+                  {user?.role === "admin" && (
+                    <Link to={`/forms/${data._id}`}>
+                      <button type="button" className="btnns">
+                        + Add New Options
+                      </button>
+                    </Link>
+                  )}
                 </div>
               </div>
-            )}
+            </div>
+            {/* )} */}
           </>
         );
       })

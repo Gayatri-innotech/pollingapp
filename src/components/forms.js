@@ -1,16 +1,16 @@
 import React, { useRef, useState } from "react";
 import { PostApiAction } from "../redux/action/action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import Spinner from "react-bootstrap/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export const Forms = () => {
   const [title, setTitle] = useState("");
   const [errors, setErrors] = useState("");
-  const [show, setShow] = useState("");
+  const [loading, setLoading] = useState("");
   const [options, setOptions] = useState([
     {
       id: 1,
@@ -43,15 +43,17 @@ export const Forms = () => {
   };
 
   const navigate = useNavigate();
+  const detail = useSelector((state) => state.reducer.details)
   const dispatch = useDispatch();
   const titleHandler = (e) => {
     setTitle(e.target.value);
   };
+  
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => {
-    setShow(false);
-  };
+  // const handleShow = () => setShow(true);
+  // const handleClose = () => {
+  //   setShow(false);
+  // };
 
   const clickHandler = (e) => {
     e.preventDefault();
@@ -67,6 +69,7 @@ export const Forms = () => {
         options: options.map((option) => ({ option: option.value, vote: 0 })),
       };
       dispatch(PostApiAction(finalData));
+      setLoading(true);
       navigate("/homes");
     }
   };
@@ -110,7 +113,7 @@ export const Forms = () => {
       (options.length < 2 ||
         options.some((option) => option.value.length === 0)) ? (
         <label className="errors">
-          Options can't be empty! Choose atleast 2 Options to Create the Poll.
+          Options can't be empty! Choose at least 2 Options to Create the Poll.
         </label>
       ) : (
         ""
@@ -122,17 +125,37 @@ export const Forms = () => {
       </button>
       <br />
 
-      <button onClick={handleShow} className="btn btn-info">
-        Submit
-      </button>
+      {loading ? (
+            <Button variant="primary" disabled>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+             Submit...
+            </Button>
+          ) : (
+            <Button
+            onClick={(e) => {
+              clickHandler(e);
+            }}
+            className="btn btn-info"
+          >
+            Submit
+          </Button>
+          )}
 
-      <Modal
+ 
+
+      {/* <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-      >
-        <Modal.Header className="mods" closeButton>
+      > */}
+      {/* <Modal.Header className="mods" closeButton>
           <Modal.Title className="titles">Confirm to Add</Modal.Title>
         </Modal.Header>
         <Modal.Body className="mods">
@@ -152,7 +175,7 @@ export const Forms = () => {
             Save
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
       <Link to="/homes">
         <button className="btn btn-danger">Back</button>
       </Link>

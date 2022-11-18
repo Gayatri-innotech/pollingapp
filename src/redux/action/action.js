@@ -43,10 +43,10 @@ const PostVoteApiAction = (request) => {
     console.log('REQ', request);
     return function (dispatch) {
         return PostVoteApiDetails(request).then((res) => {
-            console.log('PostVoteApiDetails Response', res);
+
             dispatch({
                 type: 'POST_VOTE_DETAILS',
-                payload: '',
+                payload: request,
             });
         });
     };

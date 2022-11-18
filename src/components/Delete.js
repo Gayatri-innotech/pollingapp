@@ -1,16 +1,20 @@
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
+import Spinner from "react-bootstrap/esm/Spinner";
 import Modal from "react-bootstrap/Modal";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 import { DeleteApiAction, GetApiAction } from "../redux/action/action";
 
 const Delete = ({ id }) => {
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const handleClick = () => {
     dispatch(DeleteApiAction(id));
+    setLoading(true)
     handleClose();
   };
 
@@ -24,7 +28,6 @@ const Delete = ({ id }) => {
   const handleShow = () => setShow(true);
   return (
     <>
-      {" "}
       <span className="head">
         <FontAwesomeIcon
           className="trash"
@@ -49,9 +52,23 @@ const Delete = ({ id }) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={handleClick} variant="primary">
-            Confirm Delete
-          </Button>
+
+           {loading ? (
+            <Button variant="primary" disabled>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              Confirm Delete
+            </Button>
+          ) : (
+            <Button onClick={handleClick} variant="primary">
+              Confirm Delete
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>

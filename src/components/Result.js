@@ -28,9 +28,9 @@ export const Result = () => {
 
   console.log("--", title);
 
-  const result = title.map((item, index) => {
-    return <h5 key={index}>{item.vote}</h5>;
-  });
+  // const result = title.map((item, index) => {
+  //   return <h5 key={index}>{item.vote}</h5>;
+  // });
   console.log("--//", title);
 
   let data = {
@@ -82,7 +82,7 @@ export const Result = () => {
       <Link to="/homes">
         <button className="btn btn-danger">Back</button>
       </Link>
-      {result}
+      {/* {result} */}
       <Bar data={data} height={0} options={options}></Bar>
     </div>
   );

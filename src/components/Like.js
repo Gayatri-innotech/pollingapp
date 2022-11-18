@@ -13,13 +13,14 @@ const Like = ({ idd, idss, iddd }) => {
   };
 
   const handleShows = () => setShows(true);
-  const authState = useSelector ((state) => state.authSlice)
+  const authState = useSelector((state) => state.authSlice);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = () => {
     dispatch(PostVoteApiAction(idd));
-    navigate(`/chart/${iddd}`);
+    handleCloses();
+    // navigate(`/chart/${iddd}`);
   };
 
   return (
@@ -33,36 +34,27 @@ const Like = ({ idd, idss, iddd }) => {
       />
 
       <Modal
-         show={shows}
-         onHide={handleCloses}
-         backdrop="static"
-         keyboard={false}
-       >
-         <Modal.Header className="mods" closeButton>
-           <Modal.Title className="mods">Confirm Voting</Modal.Title>
-         </Modal.Header>
-         <Modal.Body className="titles">
-           Are you sure you want to vote on this option? If yes click on Submit to vote and view Results.
-         </Modal.Body>
-         <Modal.Footer>
-           <Button variant="secondary" onClick={handleCloses}>
-             Close
-           </Button>
+        show={shows}
+        onHide={handleCloses}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header className="mods" closeButton>
+          <Modal.Title className="mods">Confirm Voting</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="titles">
+          Are you sure you want to vote on this option? If yes click on Submit
+          to vote and view Results.
+        </Modal.Body>
 
-          {authState.loading ? (
-              <div className="loader">
-                <img
-                  src="https://acegif.com/wp-content/uploads/loading-13.gif"
-                  alt="Loading"
-                />
-              </div>
-            ) : (
-          
-              <Button onClick={handleSubmit} variant="primary">
-              Submit
-            </Button>
-            )}
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloses}>
+            Close
+          </Button>
 
+          <Button onClick={handleSubmit} variant="primary">
+            Submit
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>

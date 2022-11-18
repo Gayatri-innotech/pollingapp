@@ -1,4 +1,4 @@
-import { GET_DETAILS, GET_DETAILS_USER, DELETE_OPTION_DETAILS } from "../type";
+import { GET_DETAILS,POST_VOTE_DETAILS, GET_DETAILS_USER, DELETE_OPTION_DETAILS } from "../type";
 
 const initialState = {
     details: [],
@@ -23,6 +23,19 @@ const Reducer = (state = initialState, action) => {
                 ...state,
                 deleteOption: action.payload,
             };
+
+        case POST_VOTE_DETAILS: {
+            const currentPoll = state.details.findIndex((poll) => poll._id === action.payload.id);
+            const currentVote = state.details[currentPoll].options.findIndex(vote => vote.option === action.payload.option);
+            state.details[currentPoll].options[currentVote].vote += 1;
+            const updatedState = {
+                ...state,
+                details: [...state.details],
+            }
+
+            console.log(updatedState);
+            return updatedState
+        }         
         default:
             return state;
     }

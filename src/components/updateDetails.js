@@ -62,7 +62,9 @@ export const UpdateDetails = () => {
       />
       <br />
 
-      <button onClick={handleShow} className="btn btn-info">
+      <button onClick={(e) => {
+              clickHandler(e);
+            }} className="btn btn-info">
         Update Title
       </button>
 
@@ -72,7 +74,7 @@ export const UpdateDetails = () => {
         ""
       )}
 
-      <Modal
+      {/* <Modal
         show={show}
         onHide={handleClose}
         backdrop="static"
@@ -98,7 +100,7 @@ export const UpdateDetails = () => {
             Update
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
 
       <Link to="/homes">
         <button className="btn btn-danger">Back</button>

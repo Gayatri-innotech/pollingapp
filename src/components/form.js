@@ -91,7 +91,7 @@ export const Forms1 = () => {
       <Link to="/homes">
         <button className="btn btn-danger">Back</button>
       </Link>
-    </div>
+    </div>  
   );
 };
 
