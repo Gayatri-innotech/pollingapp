@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { PostVoteApiAction } from "../redux/action/action";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -15,15 +14,12 @@ const Like = ({ idd, idss, iddd }) => {
   };
 
   const handleShows = () => setShows(true);
-  const authState = useSelector((state) => state.authSlice);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = () => {
     setLoading(true);
     dispatch(PostVoteApiAction(idd));
     handleCloses();
-    // navigate(`/chart/${iddd}`);
   };
 
   return (
@@ -47,7 +43,7 @@ const Like = ({ idd, idss, iddd }) => {
         </Modal.Header>
         <Modal.Body className="titles">
           Are you sure you want to vote on this option? If yes click on Submit
-          to vote and view Results. 
+          to vote and view Results.
         </Modal.Body>
 
         <Modal.Footer>

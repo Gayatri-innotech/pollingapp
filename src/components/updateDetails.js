@@ -4,19 +4,11 @@ import { useDispatch } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import getDetailsByHooks from "../hooks/getDetailsByHooks";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 
 export const UpdateDetails = () => {
   const { id } = useParams();
   const [title, setTitle] = useState("");
-  const [show, setShow] = useState("");
   const [wrong, setWrong] = useState("");
-
-  const handleShow = () => setShow(true);
-  const handleClose = () => {
-    setShow(false);
-  };
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -62,9 +54,12 @@ export const UpdateDetails = () => {
       />
       <br />
 
-      <button onClick={(e) => {
-              clickHandler(e);
-            }} className="btn btn-info">
+      <button
+        onClick={(e) => {
+          clickHandler(e);
+        }}
+        className="btn btn-info"
+      >
         Update Title
       </button>
 
@@ -73,34 +68,6 @@ export const UpdateDetails = () => {
       ) : (
         ""
       )}
-
-      {/* <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header className="mods" closeButton>
-          <Modal.Title className="titles">Confirm to Update Title</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className="mods">
-          Are you sure you want to Edit this? Once you click on update, the new
-          title will be updated!
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button
-            onClick={(e) => {
-              clickHandler(e);
-            }}
-            variant="primary"
-          >
-            Update
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
 
       <Link to="/homes">
         <button className="btn btn-danger">Back</button>

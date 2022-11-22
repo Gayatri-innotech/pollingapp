@@ -29,7 +29,6 @@ export const Result = () => {
   console.log("--", title);
   console.log("--//", title);
 
-  
   let data = {
     labels: title?.map((x) => x.vote),
     datasets: [
@@ -37,13 +36,13 @@ export const Result = () => {
         label: "# of Votes",
         data: title?.map((x) => x.vote),
         backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-          "rgba(255, 205, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(201, 203, 207, 0.2)",
+          "rgb(195,55,38)",
+          "rgb(226,76,51)",
+          "rgb(221,109,85)",
+          "rgb(225,167,147)",
+          "rgb(44,36,36)",
+          "rgb(137,57,15)",
+          "rgb(247,194,46)",
         ],
 
         borderColor: [
@@ -71,7 +70,6 @@ export const Result = () => {
       labels: {
         fontSize: 10,
       },
-      
     },
   };
 

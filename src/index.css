@@ -222,10 +222,8 @@ table {
   left: 0;
   height: 100px;
   width: 100px;
-  background: hsla(0, 0%, 0%, 0);
   min-height: 100vh;
   min-width: 100vw;
-  background: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -242,8 +240,8 @@ table {
 }
 
 .loaders > img {
-  height: 300px;
-  width: 300px;
+  height: 100px;
+  width: 100px;
 }
 
 .loading {
@@ -252,10 +250,8 @@ table {
   left: 0;
   height: 100px;
   width: 100px;
-  background: hsla(0, 0%, 0%, 0);
   min-height: 100vh;
   min-width: 100vw;
-  background: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -275,4 +271,22 @@ table {
   width: 23px;
   height: 23px;
   float: right;
+}
+
+.loaders {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.results {
+  float: left;
 }

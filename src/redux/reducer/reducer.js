@@ -3,6 +3,8 @@ import {
   POST_VOTE_DETAILS,
   GET_DETAILS_USER,
   DELETE_OPTION_DETAILS,
+  GET_DETAILS_REQUEST,
+  GET_DETAILS_USER_REQUEST,
 } from "../type";
 
 const initialState = {
@@ -18,10 +20,22 @@ const Reducer = (state = initialState, action) => {
         ...state,
         details: action.payload,
       };
+    case GET_DETAILS_REQUEST:
+      return {
+        ...state,
+        details: [],
+        loading: true,
+      };
     case GET_DETAILS_USER:
       return {
         ...state,
         userDetails: action.payload,
+      };
+    case GET_DETAILS_USER_REQUEST:
+      return {
+        ...state,
+        userDetails: [],
+        loading: true,
       };
     case DELETE_OPTION_DETAILS:
       return {

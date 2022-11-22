@@ -31,7 +31,6 @@ export const Forms1 = () => {
   const handleClose = () => {
     setShow(false);
   };
-  const handleShow = () => setShow(true);
 
   const titleHandler = (e) => {
     setTitle(e.target.value);
@@ -48,7 +47,7 @@ export const Forms1 = () => {
       };
       dispatch(PostOptionApiAction(finalData, id));
       console.log('****', finalData);
-      // navigate('/homes');
+      navigate('/homes');
     }
   };
   return (
@@ -64,7 +63,7 @@ export const Forms1 = () => {
       <button onClick={clickHandler} className='btn btn-info'>
         Submit
       </button>
-      {error && title.length <= 0 ? (
+      {error && title.length === 0 ? (
         <label className='error'>Input field can't be empty!</label>
       ) : (
         ''
