@@ -1,12 +1,12 @@
-*{
+* {
   background: #20b2aa;
 }
 
-.btn{
+.btn {
   margin-right: 5px;
 }
 
-.icon{
+.icon {
   border: none;
   margin: 15px;
   border-radius: 5px;
@@ -14,7 +14,7 @@
   cursor: pointer;
 }
 
-.btnns{
+.btnns {
   border: none;
   font-size: 17px;
 }
@@ -23,25 +23,25 @@
   color: #660000;
 }
 
-.card{
+.card {
   margin: 5px;
   width: 300px;
 }
 
-h1{
+h1 {
   display: flex;
   flex-wrap: wrap;
 }
 
-.add{
+.add {
   margin-top: 10px;
 }
 
-table{
+table {
   width: 100px;
 }
 
-.remove{
+.remove {
   color: black;
   font-size: 12px;
   font-weight: 900;
@@ -68,7 +68,7 @@ table{
 }
 
 .error {
-  color:#660000;
+  color: #660000;
   width: 30%;
   height: 30px;
   margin-top: 10px;
@@ -78,7 +78,7 @@ table{
 }
 
 .errors {
-  color:#660000;
+  color: #660000;
   width: 50%;
   height: 30px;
   margin-top: 10px;
@@ -87,7 +87,7 @@ table{
   border-radius: 5px;
 }
 
-.form{
+.form {
   width: 90%;
   border-radius: 5px;
   border: 1px solid lightgray;
@@ -100,7 +100,7 @@ table{
   float: right;
 }
 
-.trash{
+.trash {
   cursor: pointer;
   background: white;
 }
@@ -118,7 +118,7 @@ table{
 
 .boxx {
   background: white;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-weight: 200;
   font-size: large;
 }
@@ -134,7 +134,7 @@ table{
   height: 100%;
 }
 
-.cols{
+.cols {
   background: white;
   padding-top: 30px;
 }
@@ -175,7 +175,7 @@ table{
 
 .btns {
   background-color: white;
-  color: #2F4F4F;
+  color: #2f4f4f;
 }
 
 .card {
@@ -202,12 +202,13 @@ table{
   background-color: #f7f7f7;
 }
 
-.mods, .titles {
+.mods,
+.titles {
   background: white;
 }
 
 .modal {
-  background-color:  hsla(0, 0%, 0%, 0);
+  background-color: hsla(0, 0%, 0%, 0);
 }
 
 .spin {
@@ -221,7 +222,7 @@ table{
   left: 0;
   height: 100px;
   width: 100px;
-  background:  hsla(0, 0%, 0%, 0);
+  background: hsla(0, 0%, 0%, 0);
   min-height: 100vh;
   min-width: 100vw;
   background: rgba(0, 0, 0, 0.3);
@@ -237,7 +238,7 @@ table{
 }
 
 .errorss {
-  color:#660000;
+  color: #660000;
 }
 
 .loaders > img {
@@ -245,20 +246,20 @@ table{
   width: 300px;
 }
 
-.loaders {
+.loading {
   position: fixed;
   top: 0;
   left: 0;
   height: 100px;
   width: 100px;
-  background:  hsla(0, 0%, 0%, 0);
+  background: hsla(0, 0%, 0%, 0);
   min-height: 100vh;
   min-width: 100vw;
   background: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: 99999;
 }
 
 .web {
@@ -269,7 +270,7 @@ table{
   margin-top: 100px;
 }
 
-.results{
+.results {
   color: black;
   width: 23px;
   height: 23px;

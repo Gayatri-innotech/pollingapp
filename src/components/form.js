@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { PostOptionApiAction } from "../redux/action/action";
-import { useDispatch } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import getDetailsByHooks from "../hooks/getDetailsByHooks";
-import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import React, { useState, useEffect } from 'react';
+import { PostOptionApiAction } from '../redux/action/action';
+import { useDispatch } from 'react-redux';
+import { useNavigate, useParams } from 'react-router-dom';
+import getDetailsByHooks from '../hooks/getDetailsByHooks';
+import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import Spinner from 'react-bootstrap/esm/Spinner';
 
 export const Forms1 = () => {
   const { id } = useParams();
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
+  const [loading, setLoading] = useState(false);
   const [show, setShow] = useState(false);
   const [error, setError] = useState(false);
 
@@ -20,7 +22,7 @@ export const Forms1 = () => {
   useEffect(() => {
     const data = () => {
       if (detailsById.data) {
-        setTitle(detailsById.data.data["title"]);
+        setTitle(detailsById.data.data['title']);
       }
     };
     data();
@@ -36,6 +38,7 @@ export const Forms1 = () => {
   };
 
   const clickHandler = (e) => {
+    setLoading(true);
     if (title?.length === 0) {
       setError(true);
     } else {
@@ -44,54 +47,68 @@ export const Forms1 = () => {
         title: title,
       };
       dispatch(PostOptionApiAction(finalData, id));
-      console.log("****", finalData);
-      navigate("/homes");
+      console.log('****', finalData);
+      // navigate('/homes');
     }
   };
   return (
-    <div className="container add">
+    <div className='container add'>
       <h1>Add New Option</h1>
       <input
         onChange={(e) => titleHandler(e)}
-        type="text"
-        placeholder="Add Options"
-        className="form-control"
-      />{" "}
+        type='text'
+        placeholder='Add Options'
+        className='form-control'
+      />{' '}
       <br />
-      <button onClick={handleShow} className="btn btn-info">
+      <button onClick={clickHandler} className='btn btn-info'>
         Submit
       </button>
       {error && title.length <= 0 ? (
-        <label className="error">Input field can't be empty!</label>
+        <label className='error'>Input field can't be empty!</label>
       ) : (
-        ""
+        ''
       )}
       <Modal
         show={show}
         onHide={handleClose}
-        backdrop="static"
+        backdrop='static'
         keyboard={false}
       >
-        <Modal.Header className="mods" closeButton>
-          <Modal.Title className="mods">Add Option</Modal.Title>
+        <Modal.Header className='mods' closeButton>
+          <Modal.Title className='mods'>Add Option</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="titles">
+        <Modal.Body className='titles'>
           Are you sure you want to add this option? Once you click on Submit,
           the new option will be saved!
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant='secondary' onClick={handleClose}>
             Close
           </Button>
-          <Button onClick={clickHandler} variant="primary">
-            Confirm Submit
-          </Button>
+
+          {loading ? (
+            <Button variant='primary' disabled>
+              <Spinner
+                as='span'
+                animation='grow'
+                size='sm'
+                role='status'
+                aria-hidden='true'
+              />
+              Submit...
+            </Button>
+          ) : (
+            <Button onClick={clickHandler} variant='primary'>
+              Confirm Submit
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
-      <Link to="/homes">
-        <button className="btn btn-danger">Back</button>
+      <Link to='/homes'>
+        <button className='btn btn-danger'>Back</button>
       </Link>
-    </div>  
+    </div>
   );
 };
 

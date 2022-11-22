@@ -27,12 +27,9 @@ export const Result = () => {
   }, [detailsById.data]);
 
   console.log("--", title);
-
-  // const result = title.map((item, index) => {
-  //   return <h5 key={index}>{item.vote}</h5>;
-  // });
   console.log("--//", title);
 
+  
   let data = {
     labels: title?.map((x) => x.vote),
     datasets: [
@@ -74,6 +71,7 @@ export const Result = () => {
       labels: {
         fontSize: 10,
       },
+      
     },
   };
 

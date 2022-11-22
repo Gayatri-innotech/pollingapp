@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { PostVoteApiAction } from "../redux/action/action";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Spinner from "react-bootstrap/Spinner";
 
 const Like = ({ idd, idss, iddd }) => {
   const [shows, setShows] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleCloses = () => {
     setShows(false);
@@ -18,6 +20,7 @@ const Like = ({ idd, idss, iddd }) => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
+    setLoading(true);
     dispatch(PostVoteApiAction(idd));
     handleCloses();
     // navigate(`/chart/${iddd}`);
@@ -44,7 +47,7 @@ const Like = ({ idd, idss, iddd }) => {
         </Modal.Header>
         <Modal.Body className="titles">
           Are you sure you want to vote on this option? If yes click on Submit
-          to vote and view Results.
+          to vote and view Results. 
         </Modal.Body>
 
         <Modal.Footer>
@@ -52,9 +55,22 @@ const Like = ({ idd, idss, iddd }) => {
             Close
           </Button>
 
-          <Button onClick={handleSubmit} variant="primary">
-            Submit
-          </Button>
+          {loading ? (
+            <Button variant="primary" disabled>
+              <Spinner
+                as="span"
+                animation="grow"
+                size="sm"
+                role="status"
+                aria-hidden="true"
+              />
+              Submit...
+            </Button>
+          ) : (
+            <Button onClick={handleSubmit} variant="primary">
+              Submit
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </div>
