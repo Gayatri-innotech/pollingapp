@@ -1,13 +1,297 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  background: #20b2aa;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.btn {
+  margin-right: 5px;
+}
+
+.icon {
+  border: none;
+  margin: 15px;
+  border-radius: 5px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.btnns {
+  border: none;
+  font-size: 17px;
+  color: #8B4500;
+}
+
+.btnns:hover {
+  color: #660000;
+}
+
+.card {
+  margin: 5px;
+  width: 300px;
+}
+
+h1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add {
+  margin-top: 10px;
+}
+
+table {
+  width: 100px;
+}
+
+.remove {
+  color: black;
+  font-size: 12px;
+  font-weight: 900;
+  position: absolute;
+  right: 0;
+  margin: 5px;
+  padding: 2px;
+  border: none;
+}
+
+.del {
+  float: right;
+}
+
+.inp {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  height: 40px;
+}
+
+.inp::placeholder {
+  color: gray;
+}
+
+.error {
+  color: #660000;
+  width: 30%;
+  height: 30px;
+  margin-top: 10px;
+  padding: 3px;
+  background: #f3d8da;
+  border-radius: 5px;
+}
+
+.errors {
+  color: #660000;
+  width: 50%;
+  height: 30px;
+  margin-top: 10px;
+  padding: 3px;
+  background: #f3d8da;
+  border-radius: 5px;
+}
+
+.form {
+  width: 90%;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.cross {
+  cursor: pointer;
+  float: right;
+}
+
+.trash {
+  cursor: pointer;
+  background: white;
+}
+
+.like {
+  float: right;
+  margin-right: 5px;
+  color: darkgoldenrod;
+  cursor: pointer;
+}
+
+.sub {
+  margin-top: 20px;
+}
+
+.boxx {
+  background: white;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 200;
+  font-size: large;
+}
+
+.contain {
+  border: 1px solid white;
+  background: white;
+  margin-top: 25px;
+  margin-right: 50px;
+  margin-left: 50px;
+  border-radius: 15px;
+  padding-bottom: 40px;
+  height: 100%;
+}
+
+.cols {
+  background: white;
+  padding-top: 30px;
+}
+
+.boxe {
+  background: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 900;
+  float: left;
+  margin-left: 20px;
+  text-decoration: underline;
+}
+
+.boxee {
+  background: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 900;
+  margin-right: 5px;
+}
+
+.boxes {
+  width: 90%;
+  height: 25px;
+  border: none;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  margin-top: 25px;
+}
+
+.btn1 {
+  width: 20%;
+  height: 25px;
+  border: none;
+  background-color: cadetblue;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.btns {
+  background-color: white;
+  color: #2f4f4f;
+}
+
+.btn {
+  float: right;
+  margin: 5px;
+}
+
+.pen {
+  background: #f7f7f7;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.head {
+  background-color: #f7f7f7;
+}
+
+.mods,
+.titles {
+  background: white;
+}
+
+.modal {
+  background-color: hsla(0, 0%, 0%, 0);
+}
+
+.spin {
+  background-color: white;
+  background: white;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  background-color: hsla(0, 0%, 0%, 0);
+  background: hsla(0, 0%, 0%, 0);
+  left: 0;
+  height: 100px;
+  width: 100px;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.loader > img {
+  height: 50px;
+  width: 50px;
+}
+
+.errorss {
+  color: #660000;
+  background: white;
+  margin-top: 10px;
+}
+
+.loaders > img {
+  height: 100px;
+  width: 100px;
+}
+
+.card {
+  width: 300px;
+  min-height: 500px;
+  margin: 10px;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.web {
+  color: #660000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.results {
+  color: black;
+  width: 23px;
+  height: 23px;
+  float: right;
+}
+
+.loaders {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.results {
+  float: left;
 }
