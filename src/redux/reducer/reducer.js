@@ -5,6 +5,8 @@ import {
   DELETE_OPTION_DETAILS,
   GET_DETAILS_REQUEST,
   GET_DETAILS_USER_REQUEST,
+  UPDATE_DETAILS,
+  UPDATE_DETAILS_REQUEST,
 } from "../type";
 
 const initialState = {
@@ -24,6 +26,17 @@ const Reducer = (state = initialState, action) => {
       return {
         ...state,
         details: [],
+        loading: true,
+      };
+    case UPDATE_DETAILS:
+      return {
+        ...state,
+        updateDetails: action.payload,
+      };
+    case UPDATE_DETAILS_REQUEST:
+      return {
+        ...state,
+        updateDetails: [],
         loading: true,
       };
     case GET_DETAILS_USER:

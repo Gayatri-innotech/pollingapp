@@ -78,7 +78,7 @@ export const Result = () => {
       <Link to="/homes">
         <button className="btn btn-danger">Back</button>
       </Link>
-      {/* {result} */}
+      
       <Bar data={data} height={0} options={options}></Bar>
     </div>
   );

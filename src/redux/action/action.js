@@ -67,12 +67,24 @@ const PostVoteApiAction = (request) => {
 
 const UpdateApiAction = (request, id) => {
   return function (dispatch) {
+    dispatch({
+        type: "UPDATE_DETAILS_REQUEST",
+        payload: true,
+      });
+      console.log(UpdateApiAction);
     return UpdateApiDetails(request, id).then((res) => {
       console.log("UpdateApiAction Response", res);
       dispatch({
         type: "UPDATE_DETAILS",
         payload: true,
       });
+      dispatch(GetApiAction());
+    }).catch (err => {
+        dispatch({
+            type:'UPDATE-ACTION-ERROR',
+            error: true,
+        });
+        // dispatch(GetApiAction())
     });
   };
 };
@@ -111,6 +123,7 @@ const PostOptionApiAction = (request, id) => {
         type: "POST_OPTION_DETAILS",
         payload: "",
       });
+      dispatch(GetApiAction());
     });
   };
 };

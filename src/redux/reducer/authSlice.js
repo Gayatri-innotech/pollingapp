@@ -53,7 +53,7 @@ export const signInUser = createAsyncThunk("signinuser", async (body) => {
     return { user: loggedIn };
   }
 
-  return { error: "User does not exist" };
+  return { error: <h6 className="errorss">User does not exist</h6> };
 });
 
 const authSlice = createSlice({

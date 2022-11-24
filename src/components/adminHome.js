@@ -57,6 +57,7 @@ const AdminHome = () => {
                           />
                         )}
                         {item.option}
+                        <br/>
                         {/*{item.vote} */}
                         <hr />
                       </span>{" "}
@@ -77,6 +78,7 @@ const AdminHome = () => {
                       </button>
                     </Link>
                   )}
+                  <hr/>
                 </div>
               </div>
             </div>

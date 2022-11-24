@@ -40,8 +40,9 @@ const Register = () => {
   return (
     <>
       <h2 className="sub">Register User</h2>
-      <h6 className="errorss">{err}</h6>
+      
       <div className="contain">
+      <h6 className='errorss'>{err}</h6>
         <form className="cols" onSubmit={registerHandle}>
           <label htmlFor="" required className="boxe">
             Username

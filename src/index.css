@@ -17,6 +17,7 @@
 .btnns {
   border: none;
   font-size: 17px;
+  color: #8B4500;
 }
 
 .btnns:hover {
@@ -178,12 +179,6 @@ table {
   color: #2f4f4f;
 }
 
-.card {
-  width: 200px;
-  float: right;
-  margin: 5px;
-}
-
 .btn {
   float: right;
   margin: 5px;
@@ -194,8 +189,8 @@ table {
 }
 
 .container {
-  width: 80%;
-  height: 500px;
+  width: 100%;
+  height: 100%;
 }
 
 .head {
@@ -219,6 +214,8 @@ table {
 .loader {
   position: fixed;
   top: 0;
+  background-color: hsla(0, 0%, 0%, 0);
+  background: hsla(0, 0%, 0%, 0);
   left: 0;
   height: 100px;
   width: 100px;
@@ -237,11 +234,19 @@ table {
 
 .errorss {
   color: #660000;
+  background: white;
+  margin-top: 10px;
 }
 
 .loaders > img {
   height: 100px;
   width: 100px;
+}
+
+.card {
+  width: 300px;
+  min-height: 500px;
+  margin: 10px;
 }
 
 .loading {
@@ -284,7 +289,7 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: 99999;
 }
 
 .results {
